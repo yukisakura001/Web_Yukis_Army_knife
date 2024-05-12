@@ -13,7 +13,7 @@ const Home = () => {
     {
       id: 1,
       name: "箇条書き文章化",
-      description: "",
+      description: "構造化された箇条書きに見出しをつけて見やすくするツールです",
       tag: "テキスト",
       Link: "/Kazyougaki",
     },
