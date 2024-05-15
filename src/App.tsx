@@ -5,6 +5,7 @@ import About from "./AppShow/About";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Kazyougaki from "./AppShow/Kazyougaki";
+import StringCode from "./AppShow/StringCode";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="*" element={<h1>Not Found Page</h1>} />
             <Route path="/Kazyougaki" element={<Kazyougaki />} />
+            <Route path="/StringCode" element={<StringCode />} />
           </Routes>
           <Footer />
         </BrowserRouter>

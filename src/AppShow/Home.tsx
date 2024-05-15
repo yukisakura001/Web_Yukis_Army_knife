@@ -19,10 +19,11 @@ const Home = () => {
     },
     {
       id: 2,
-      name: "箇条書き2",
-      description: "解説2",
-      tag: "tag1",
-      Link: "/about",
+      name: "文字コード変換",
+      description:
+        "テキストファイルの文字コードを表示・変換することができるツールです",
+      tag: "テキスト",
+      Link: "/StringCode",
     },
     {
       id: 3,

@@ -1,4 +1,12 @@
-import { Heading, LinkBox, LinkOverlay, Text, Center } from "@yamada-ui/react";
+import {
+  Heading,
+  LinkBox,
+  LinkOverlay,
+  Text,
+  Center,
+  Tag,
+  Link as ChakraLink,
+} from "@yamada-ui/react";
 import { Link } from "react-router-dom";
 
 interface AppToolType {
@@ -23,7 +31,9 @@ export default function AppBox({ AppTool }: { AppTool: AppToolType }) {
         width="300px"
         height="200px"
       >
-        <Text as="span">{AppTool.tag}</Text>
+        <ChakraLink as={Link} to="/about">
+          <Tag>{AppTool.tag}</Tag>
+        </ChakraLink>
 
         <Heading size="md" my="sm">
           <Center>
