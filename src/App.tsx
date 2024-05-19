@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Kazyougaki from "./AppShow/Kazyougaki";
 import StringCode from "./AppShow/StringCode";
+import Roulette from "./AppShow/Roulette";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="*" element={<h1>Not Found Page</h1>} />
             <Route path="/Kazyougaki" element={<Kazyougaki />} />
             <Route path="/StringCode" element={<StringCode />} />
+            <Route path="/Roulette" element={<Roulette />} />
           </Routes>
           <Footer />
         </BrowserRouter>

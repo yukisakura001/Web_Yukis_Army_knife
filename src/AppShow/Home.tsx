@@ -27,14 +27,14 @@ const Home = () => {
     },
     {
       id: 3,
-      name: "箇条書き3",
-      description: "解説3",
-      tag: "tag1",
-      Link: "/about",
+      name: "ルーレット",
+      description: "ルーレットを回して選択をランダムに行うツールです",
+      tag: "小物",
+      Link: "/Roulette",
     },
   ];
   return (
-    <Wrap gap="md">
+    <Wrap gap="md" style={{ justifyContent: "center" }}>
       {App_dictionary.map((AppTool: AppToolType) => (
         <AppBox key={AppTool.id} AppTool={AppTool} />
       ))}
