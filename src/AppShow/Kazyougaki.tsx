@@ -1,4 +1,5 @@
-import { Heading, Textarea } from "@yamada-ui/react";
+import { Heading, Textarea, Box, Button, useClipboard } from "@yamada-ui/react";
+import { Markdown } from "@yamada-ui/markdown";
 import { useState, ChangeEvent } from "react";
 
 const Kazyougaki = () => {
@@ -8,6 +9,7 @@ const Kazyougaki = () => {
   function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
     setText(event.target.value);
     setText2(get_input(event.target.value));
+    setValue(get_input(event.target.value));
   }
 
   function replaceLeadingSpacesWithHash(input: string, txt: string): string {
@@ -34,42 +36,6 @@ const Kazyougaki = () => {
     }
   }
 
-  //  function get_input(content: string): string {
-  //    let arrayFromString = content.split("\n");
-  //    let array: string[] = [];
-  //    for (let i = 0; i < arrayFromString.length - 1; i++) {
-  //      if (
-  //        countLeadingSpaces(arrayFromString[i + 1]) >
-  //        countLeadingSpaces(arrayFromString[i])
-  //      ) {
-  //        array[i] = replaceLeadingSpacesWithHash(
-  //          arrayFromString[i].replace("- ", "# "),
-  //          "#"
-  //        );
-  //      } else if (
-  //        countLeadingSpaces(arrayFromString[i - 1]) >
-  //        countLeadingSpaces(arrayFromString[i])
-  //      ) {
-  //        array[i] = replaceLeadingSpacesWithHash(
-  //          arrayFromString[i].replace("- ", "# "),
-  //          "#"
-  //        );
-  //      } else if (
-  //        array[i - 1].slice(0, 1) === "#" &&
-  //        countLeadingSpaces(arrayFromString[i]) ===
-  //          countLeadingSpaces(arrayFromString[i - 1])
-  //      ) {
-  //        array[i] = replaceLeadingSpacesWithHash(
-  //          arrayFromString[i].replace("- ", "# "),
-  //          "#"
-  //        );
-  //      } else {
-  //        array[i] = replaceLeadingSpacesWithHash(arrayFromString[i], "");
-  //      }
-  //    }
-  //    content = array.join("\n");
-  //    return content;
-  //  }
   function get_input(content: string): string {
     let arrayFromString = content.split("\n");
     let array: string[] = [];
@@ -115,9 +81,14 @@ const Kazyougaki = () => {
     return array.join("\n");
   }
 
+  const { onCopy, value, setValue, hasCopied } = useClipboard();
+
   return (
     <>
       <Heading>箇条書き文書化</Heading>
+      <Button variant="outline" onClick={onCopy}>
+        変換後をコピー
+      </Button>
       <Textarea
         autosize
         minRows={4}
@@ -125,13 +96,10 @@ const Kazyougaki = () => {
         value={text}
         onChange={handleChange}
       />
-      <Textarea
-        autosize
-        minRows={4}
-        placeholder="文書化"
-        value={text2}
-        isReadOnly
-      />
+
+      <Box style={{ marginTop: 10 }}>
+        <Markdown>{text2}</Markdown>
+      </Box>
     </>
   );
 };

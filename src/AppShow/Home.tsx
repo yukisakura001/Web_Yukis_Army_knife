@@ -27,8 +27,8 @@ const Home = () => {
     },
     {
       id: 3,
-      name: "ルーレット",
-      description: "ルーレットを回して選択をランダムに行うツールです",
+      name: "抽選",
+      description: "項目を設定して抽選をすることができるツールです",
       tag: "小物",
       Link: "/Roulette",
     },
